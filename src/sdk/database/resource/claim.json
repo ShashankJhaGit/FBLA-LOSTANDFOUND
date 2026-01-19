@@ -1,0 +1,213 @@
+{
+  "id": "102019b9b7367bd7044af70c84ea321eb0b",
+  "version": "102019b9b810e8371519eb84110a2b594e9",
+  "schema": {
+    "name": "claim",
+    "description": "Stores pickup requests or claims for lost items.",
+    "fields": [
+      {
+        "name": "id",
+        "description": "Unique identifier for the claim.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Primary key"
+        }
+      },
+      {
+        "name": "data_creator",
+        "description": "id of the user who creates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal audit"
+        }
+      },
+      {
+        "name": "data_updater",
+        "description": "id of the user who updates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal audit"
+        }
+      },
+      {
+        "name": "create_time",
+        "description": "create time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Record metadata"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "update_time",
+        "description": "update time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Record metadata"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "item_id",
+        "description": "Reference ID to the lost item being claimed.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Foreign key"
+        }
+      },
+      {
+        "name": "student_name",
+        "description": "Name of the student claiming the item.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Personal identifiable information"
+        }
+      },
+      {
+        "name": "student_id",
+        "description": "Student ID number.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Personal identifiable information"
+        }
+      },
+      {
+        "name": "student_email",
+        "description": "Email address of the student.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Personal identifiable information"
+        },
+        "format": "email"
+      },
+      {
+        "name": "grade",
+        "description": "Grade level of the student.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Student record"
+        }
+      },
+      {
+        "name": "homeroom_teacher",
+        "description": "Homeroom teacher of the student.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Student record"
+        }
+      },
+      {
+        "name": "pickup_time_slot",
+        "description": "Requested time slot for pickup.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal coordination"
+        }
+      },
+      {
+        "name": "claim_status",
+        "description": "Status of the claim.",
+        "type": 100,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Approval process status"
+        },
+        "enumeration": [
+          {
+            "value": "Unspecified"
+          },
+          {
+            "number": 1,
+            "value": "Pending"
+          },
+          {
+            "number": 2,
+            "value": "Approved"
+          },
+          {
+            "number": 3,
+            "value": "Declined"
+          }
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "fields": [
+          "id"
+        ],
+        "unique": true,
+        "primary": true,
+        "order": false
+      },
+      {
+        "fields": [
+          "data_creator"
+        ],
+        "order": false
+      },
+      {
+        "fields": [
+          "data_updater"
+        ],
+        "order": false
+      },
+      {
+        "fields": [
+          "item_id"
+        ],
+        "order": false
+      },
+      {
+        "fields": [
+          "student_id"
+        ],
+        "order": false
+      },
+      {
+        "fields": [
+          "claim_status"
+        ],
+        "order": false
+      }
+    ],
+    "relations": [
+      {
+        "referencing_fields": [
+          "item_id"
+        ],
+        "referenced_entity": {
+          "name": "lost_item"
+        },
+        "referenced_fields": [
+          "id"
+        ]
+      }
+    ]
+  },
+  "task": {
+    "id": "695f1acd08da5b90fa0c4f03",
+    "root": "695f17652d44c5a3bf62520b",
+    "project": "695f17652d44c5a3bf62520a",
+    "user": "38016300-a0a1-7033-4cae-2fd125a06cbc"
+  },
+  "namespace": {
+    "id": "01987547fc6c72ecb453bd2736bd4ea0",
+    "tenant": 2,
+    "name": "global-1",
+    "default": true
+  },
+  "revision": 1
+}

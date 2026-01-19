@@ -1,0 +1,251 @@
+{
+  "id": "102019b85b0c438767e8ce117cd835887e2",
+  "version": "102019b85b0c4387596b4669867b5ab6eed",
+  "schema": {
+    "name": "lost_item",
+    "description": "Stores details about lost items found in the school.",
+    "fields": [
+      {
+        "name": "id",
+        "description": "Unique identifier for the lost item.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Primary key"
+        }
+      },
+      {
+        "name": "data_creator",
+        "description": "id of the user who creates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal audit"
+        }
+      },
+      {
+        "name": "data_updater",
+        "description": "id of the user who updates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal audit"
+        }
+      },
+      {
+        "name": "create_time",
+        "description": "create time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Record metadata"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "update_time",
+        "description": "update time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Record metadata"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "photo_url",
+        "description": "URL of the uploaded photo of the item.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Public display of lost item"
+        },
+        "nullable": true
+      },
+      {
+        "name": "item_name",
+        "description": "Name or short title of the lost item.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Public display"
+        }
+      },
+      {
+        "name": "description",
+        "description": "Detailed description of the item.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Public display"
+        },
+        "nullable": true
+      },
+      {
+        "name": "category",
+        "description": "Category of the item.",
+        "type": 100,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Public categorization"
+        },
+        "enumeration": [
+          {
+            "value": "Unspecified"
+          },
+          {
+            "number": 1,
+            "value": "Electronics"
+          },
+          {
+            "number": 2,
+            "value": "Books"
+          },
+          {
+            "number": 3,
+            "value": "Clothing"
+          },
+          {
+            "number": 4,
+            "value": "Accessories"
+          },
+          {
+            "number": 5,
+            "value": "Keys"
+          },
+          {
+            "number": 6,
+            "value": "Bags"
+          },
+          {
+            "number": 7,
+            "value": "SportsEquipment"
+          },
+          {
+            "number": 8,
+            "value": "Miscellaneous"
+          }
+        ]
+      },
+      {
+        "name": "date_found",
+        "description": "Date when the item was found.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Public information"
+        },
+        "format": "date"
+      },
+      {
+        "name": "location_found",
+        "description": "Location where the item was found.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Public information"
+        }
+      },
+      {
+        "name": "finder_name",
+        "description": "Name of the person who found the item.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Personal identifiable information"
+        },
+        "nullable": true
+      },
+      {
+        "name": "finder_email",
+        "description": "Email of the person who found the item.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Personal identifiable information"
+        },
+        "nullable": true,
+        "format": "email"
+      },
+      {
+        "name": "status",
+        "description": "Current status of the item.",
+        "type": 100,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Item availability status"
+        },
+        "enumeration": [
+          {
+            "value": "Unspecified"
+          },
+          {
+            "number": 1,
+            "value": "Pending"
+          },
+          {
+            "number": 2,
+            "value": "Active"
+          },
+          {
+            "number": 3,
+            "value": "Claimed"
+          }
+        ]
+      }
+    ],
+    "indexes": [
+      {
+        "fields": [
+          "id"
+        ],
+        "unique": true,
+        "primary": true,
+        "order": false
+      },
+      {
+        "fields": [
+          "data_creator"
+        ],
+        "order": false
+      },
+      {
+        "fields": [
+          "data_updater"
+        ],
+        "order": false
+      },
+      {
+        "fields": [
+          "category"
+        ],
+        "order": false
+      },
+      {
+        "fields": [
+          "status"
+        ],
+        "order": false
+      },
+      {
+        "fields": [
+          "date_found"
+        ],
+        "order": true
+      }
+    ]
+  },
+  "task": {
+    "id": "695984b2b4131464eac24f7b",
+    "root": "695984b2b4131464eac24f7b",
+    "project": "695f17652d44c5a3bf62520a",
+    "user": "38016300-a0a1-7033-4cae-2fd125a06cbc"
+  },
+  "namespace": {
+    "id": "01987547fc6c72ecb453bd2736bd4ea0",
+    "tenant": 2,
+    "name": "global-1",
+    "default": true
+  },
+  "revision": 1
+}

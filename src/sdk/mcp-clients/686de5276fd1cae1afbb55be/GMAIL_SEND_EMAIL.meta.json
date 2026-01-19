@@ -1,0 +1,6 @@
+{
+  "integrationId": "mcp:686de5276fd1cae1afbb55be",
+  "name": "GMAIL_SEND_EMAIL",
+  "description": "Sends an email via Gmail API using the authenticated user's Google profile display name. At least one of 'to' (or 'recipient_email'), 'cc', or 'bcc' must be provided. At least one of subject or body must be provided. Requires `is_html=True` if the body contains HTML. For attachments, you must provide a FileUploadable object with valid `s3key` (obtained from a previous file download action like GMAIL_GET_ATTACHMENT), `mimetype` (e.g., 'image/png', 'application/pdf'), and `name` (filename). All common file types including PNG, JPG, PDF, MP4, etc. are supported. Gmail API limits total message size to ~25 MB after base64 encoding.",
+  "docPath": "src/sdk/mcp-clients/686de5276fd1cae1afbb55be/GMAIL_SEND_EMAIL.md"
+}

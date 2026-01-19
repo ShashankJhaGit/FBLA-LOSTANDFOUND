@@ -1,0 +1,119 @@
+{
+  "id": "102019b9b7367bc7d6d8e7ce13688a35cc7",
+  "version": "102019b9b810e8371519eb84110a2b594e9",
+  "schema": {
+    "name": "admin",
+    "description": "Stores admin credentials for managing the application.",
+    "fields": [
+      {
+        "name": "id",
+        "description": "Unique identifier for the admin.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Primary key"
+        }
+      },
+      {
+        "name": "data_creator",
+        "description": "id of the user who creates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal audit"
+        }
+      },
+      {
+        "name": "data_updater",
+        "description": "id of the user who updates the record",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Internal audit"
+        }
+      },
+      {
+        "name": "create_time",
+        "description": "create time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Record metadata"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "update_time",
+        "description": "update time in timestamp unix",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 1,
+          "reason": "Record metadata"
+        },
+        "format": "timestamp"
+      },
+      {
+        "name": "username",
+        "description": "Unique username for the admin.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 2,
+          "reason": "Credential identifier"
+        }
+      },
+      {
+        "name": "password_hash",
+        "description": "Encrypted hash of the admin password.",
+        "type": 1,
+        "compliance": {
+          "confidentiality": 4,
+          "reason": "Authentication credential"
+        },
+        "encryption": true,
+        "format": "password"
+      }
+    ],
+    "indexes": [
+      {
+        "fields": [
+          "id"
+        ],
+        "unique": true,
+        "primary": true,
+        "order": false
+      },
+      {
+        "fields": [
+          "data_creator"
+        ],
+        "order": false
+      },
+      {
+        "fields": [
+          "data_updater"
+        ],
+        "order": false
+      },
+      {
+        "fields": [
+          "username"
+        ],
+        "unique": true,
+        "order": false
+      }
+    ]
+  },
+  "task": {
+    "id": "695f1acd08da5b90fa0c4f03",
+    "root": "695f17652d44c5a3bf62520b",
+    "project": "695f17652d44c5a3bf62520a",
+    "user": "38016300-a0a1-7033-4cae-2fd125a06cbc"
+  },
+  "namespace": {
+    "id": "01987547fc6c72ecb453bd2736bd4ea0",
+    "tenant": 2,
+    "name": "global-1",
+    "default": true
+  },
+  "revision": 1
+}
