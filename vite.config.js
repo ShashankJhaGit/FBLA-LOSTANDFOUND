@@ -1,13 +1,24 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'path' // 1. Add this import
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+// Fix for __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 export default defineConfig({
   plugins: [react()],
-  base: '/FBLA-LOSTANDFOUND/',
+  // This base path matches your GitHub repo name exactly
+  base: '/FBLA-LOSTANDFOUND/', 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'), // 2. Add this alias
+      '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    // This ensures CSS is bundled correctly
+    cssCodeSplit: false,
+    outDir: 'dist',
+  }
 })
