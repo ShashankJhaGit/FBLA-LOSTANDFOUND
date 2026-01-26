@@ -6,10 +6,8 @@ import { fileURLToPath } from 'url'
 // Fix for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-
 export default defineConfig({
   plugins: [react()],
-  // This base path matches your GitHub repo name exactly
   base: '/FBLA-LOSTANDFOUND/', 
   resolve: {
     alias: {
