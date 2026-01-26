@@ -3,7 +3,6 @@
 /** biome-ignore-all lint/style/noRestrictedImports: this is a platform-specific component */
 
 import { useEffect, useState } from "react";
-import CreaoLogo from "@/assets/creao_logo.svg?react";
 import { useCreaoAuth } from "@/sdk/core/auth";
 
 interface FloatingBannerProps {
@@ -80,33 +79,29 @@ export function FloatingBanner({
 			</div>
 
 			<span className="flex items-center space-x-1 text-sm">
-				<CreaoLogo
-					className="h-2.5 w-auto align-middle fill-current text-white"
-					aria-label="Creao Logo"
-				/>
-			</span>
-			<button
-				type="button"
-				className="ml-2 text-white/80 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/50 rounded"
-				onClick={handleClose}
-				aria-label="Close banner"
-			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					className="h-4 w-4"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					aria-hidden="true"
-				>
-					<path
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth="2"
-						d="M6 18L18 6M6 6l12 12"
-					/>
-				</svg>
-			</button>
-		</div>
-	);
+</span>
+            <button
+                type="button"
+                className="ml-2 text-white/80 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/50 rounded"
+                onClick={handleClose}
+                aria-label="Close banner"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                    />
+                </svg>
+            </button>
+        </div>
+    );
 }
