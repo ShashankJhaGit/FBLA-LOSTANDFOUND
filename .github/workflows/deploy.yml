@@ -2,12 +2,12 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
 
 permissions:
   contents: read
   pages: write
-  id-token: write
+  id-token: writegit add .
 
 jobs:
   build:
