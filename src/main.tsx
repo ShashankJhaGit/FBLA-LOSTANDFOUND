@@ -36,12 +36,16 @@ const router = createRouter({
 	basepath: import.meta.env.TENANT_ID ? `/${import.meta.env.TENANT_ID}` : "/",
 });
 
-// Register the router instance for type safety
-declare module "@tanstack/react-router" {
-	interface Register {
-		router: typeof router;
-	}
-}
+// Create a new router instance
+const router = createRouter({
+    routeTree,
+    context: {},
+    defaultPreload: "intent",
+    scrollRestoration: true,
+    defaultStructuralSharing: true,
+    defaultPreloadStaleTime: 0,
+    basepath: "/FBLA-LOSTANDFOUND/",
+});
 
 // Render the app
 const rootElement = document.getElementById("app");
