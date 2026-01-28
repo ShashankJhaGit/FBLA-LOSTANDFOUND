@@ -1,22 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import tailwindcss from '@tailwindcss/vite'
 
-// Fix for __dirname in ES modules
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 export default defineConfig({
-  plugins: [react()],
-  base: '/FBLA-LOSTANDFOUND/', 
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
-  build: {
-    // This ensures CSS is bundled correctly
-    cssCodeSplit: false,
-    outDir: 'dist',
-  }
+  plugins: [
+    react(),
+    tailwindcss(), // This is the magic for Tailwind v4
+  ],
+  base: '/FBLA-LOSTANDFOUND/',
 })
