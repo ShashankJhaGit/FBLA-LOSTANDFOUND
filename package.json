@@ -6,9 +6,7 @@
     "dev": "vite --port 3000",
     "start": "vite --port 3000",
     "build": "vite build",
-    "serve": "vite preview",
-    "check": "tsgo --noEmit",
-    "format": "biome check --write --unsafe"
+    "serve": "vite preview"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
@@ -31,6 +29,7 @@
     "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4.0.6",
     "tailwindcss-animate": "^1.0.7",
+    "web-vitals": "^4.2.4",
     "zod": "^3.25.50",
     "zustand": "^5.0.8"
   },

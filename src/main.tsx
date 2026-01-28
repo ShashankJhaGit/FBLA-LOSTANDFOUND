@@ -6,7 +6,6 @@ import ReactDOM from "react-dom/client";
 
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
-import reportWebVitals from "./sdk/core/internal/reportWebVitals.ts";
 
 // Create a QueryClient instance
 const queryClient = new QueryClient({
@@ -50,5 +49,3 @@ if (rootElement && !rootElement.innerHTML) {
         </StrictMode>,
     );
 }
-
-reportWebVitals();
