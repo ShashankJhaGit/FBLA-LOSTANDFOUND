@@ -6,27 +6,21 @@ import ReactDOM from "react-dom/client";
 
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
-
 import reportWebVitals from "./sdk/core/internal/reportWebVitals.ts";
-import "./styles.css";
-
-// Initialize Creao platform SDK
-//import { APP_CONFIG } from "./sdk/core/global.ts";
-//export { APP_CONFIG }; // for backward compatibility
 
 // Create a QueryClient instance
 const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
-            staleTime: 5 * 60 * 1000, // 5 minutes
-            gcTime: 10 * 60 * 1000, // 10 minutes (previously cacheTime)
+            staleTime: 5 * 60 * 1000, 
+            gcTime: 10 * 60 * 1000, 
             retry: 1,
             refetchOnWindowFocus: false,
         },
     },
 });
 
-// Create a new router instance with the correct GitHub Pages basepath
+// Create a new router instance
 const router = createRouter({
     routeTree,
     context: {},
@@ -34,7 +28,7 @@ const router = createRouter({
     scrollRestoration: true,
     defaultStructuralSharing: true,
     defaultPreloadStaleTime: 0,
-    basepath: "/FBLA-LOSTANDFOUND/",
+    basepath: "/FBLA-LOSTANDFOUND/", // Correct subfolder for GH Pages
 });
 
 // Register the router instance for type safety
