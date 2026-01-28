@@ -44,6 +44,7 @@
     "@tanstack/react-router": "^1.114.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "lodash": "^4.17.23",
     "lucide-react": "^0.476.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -56,6 +57,7 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.23",
     "@types/node": "^24.7.2",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
